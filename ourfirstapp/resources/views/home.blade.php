@@ -6,7 +6,7 @@
 </head>
 <body>
 
-    @auth
+    @auth // Everything under auth is seen when user logs into a session
     <p>Congrats you are logged in.</p>
     <form action="/logout" method="POST">
         @csrf
@@ -39,7 +39,7 @@
         @endforeach
     </div>
 
-    @else
+    @else // Login page
     <div style="border: 3px solid black;">
         <h2>Register</h2>
         <form action="/register" method="post">
