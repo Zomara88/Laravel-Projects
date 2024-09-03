@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 class PostController extends Controller
 {
     public function deletePost(Post $post) {
-        if (auth()->user()->id === $post['user_id']) {
+        if (auth()->user()->id === $post['user_id']) { // If you are the author of the post, then delete the post
             $post->delete();
         }
         return redirect('/');
     }
 
     public function actuallyUpdatePost(Post $post, Request $request) {
-        if (auth()->user()->id !== $post['user_id']) { 
+        if (auth()->user()->id !== $post['user_id']) { // If you are not the author of the post, redirect to home page
             return redirect('/');
         }
 
