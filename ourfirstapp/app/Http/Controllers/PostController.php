@@ -31,12 +31,12 @@ class PostController extends Controller
         return redirect('/');
     }
 
-    public function showEditScreen(Post $post) {
+    public function showEditScreen(Post $post) { 
         if (auth()->user()->id !== $post['user_id']) {
             return redirect('/');
         }
 
-        return view('edit-post', ['post' => $post]);
+        return view('edit-post', ['post' => $post]); // Laravel will automatically do the database lookup for post
     }
 
     public function createPost(Request $request) {
