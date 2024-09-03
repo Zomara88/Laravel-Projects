@@ -1,5 +1,8 @@
 <?php
 
+/* Where web routes are registered for the application. The routes are loaded by the RouteServiceProvider within a group 
+   which contains the "web" middleware group.
+*/
 use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
