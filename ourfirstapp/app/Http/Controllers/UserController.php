@@ -22,7 +22,7 @@ class UserController extends Controller
     }
     public function logout() {
         auth()->logout();
-        return redirect('/');
+        return redirect('/'); // Redirects to home page url
     }
     public function register(Request $request) {
         $incomingFields = $request->validate([
