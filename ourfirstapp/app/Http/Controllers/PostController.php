@@ -19,12 +19,12 @@ class PostController extends Controller
             return redirect('/');
         }
 
-        $incomingFields = $request->validate([
+        $incomingFields = $request->validate([ // Title and body required for each post
             'title' => 'required',
             'body' => 'required'
         ]);
 
-        $incomingFields['title'] = strip_tags($incomingFields['title']);
+        $incomingFields['title'] = strip_tags($incomingFields['title']); // Prevents any malicious html from being stored in the database
         $incomingFields['body'] = strip_tags($incomingFields['body']);
 
         $post->update($incomingFields);
@@ -48,7 +48,7 @@ class PostController extends Controller
         $incomingFields['title'] = strip_tags($incomingFields['title']);
         $incomingFields['body'] = strip_tags($incomingFields['body']);
         $incomingFields['user_id'] = auth()->id();
-        Post::create($incomingFields);
+        Post::create($incomingFields); // Create Post model using: php artisan make:model Post
         return redirect('/');
     }
 }
