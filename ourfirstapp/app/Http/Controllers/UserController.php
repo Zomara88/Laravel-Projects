@@ -26,14 +26,14 @@ class UserController extends Controller
     }
     public function register(Request $request) {
         $incomingFields = $request->validate([
-            'name' => ['required', 'min:3', 'max:10', Rule::unique('users', 'name')], // name needs to be at least 3 characters and at most 10 characters
-            'email' => ['required', 'email', Rule::unique('users', 'email')], // must be in email format: textstring@textstring
+            'name' => ['required', 'min:3', 'max:10', Rule::unique('users', 'name')], // unique name needs to be at least 3 characters and at most 10 characters
+            'email' => ['required', 'email', Rule::unique('users', 'email')], // must be in unique email format: textstring@textstring
             'password' => ['required', 'min:8', 'max:100'] // name needs to be at least 8 characters and at most 100 characters
         ]);
 
-        $incomingFields['password'] = bcrypt($incomingFields['password']);
-        $user = User::create($incomingFields);
+        $incomingFields['password'] = bcrypt($incomingFields['password']); // hash the passwords in the database for protection
+        $user = User::create($incomingFields); 
         auth()->login($user);
-        return redirect('/');
+        return redirect('/'); // redirects to the homepage url
     }
 }
