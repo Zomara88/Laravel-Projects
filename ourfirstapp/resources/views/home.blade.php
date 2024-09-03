@@ -25,7 +25,7 @@
 
     <div style="border: 3px solid black;"> // Specifies form for post editing
         <h2>All Posts</h2>
-        @foreach($posts as $post)
+        @foreach($posts as $post) // Loop through collection of posts
         <div style="background-color: gray; padding: 10px; margin: 10px;">
             <h3>{{$post['title']}} by {{$post->user->name}}</h3>
             {{$post['body']}}
