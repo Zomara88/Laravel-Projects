@@ -10,8 +10,8 @@
     <form action="/edit-post/{{$post->id}}" method="POST">
         @csrf
         @method('PUT')
-        <input type="text" name="title" value="{{$post->title}}">
-        <textarea name="body">{{$post->body}}</textarea>
+        <input type="text" name="title" value="{{$post->title}}"> // $post->title will pre-populate the title field
+        <textarea name="body">{{$post->body}}</textarea> // $post->body translates to 'look inside post for body'
         <button>Save Changes</button>
     </form>
 </body>
