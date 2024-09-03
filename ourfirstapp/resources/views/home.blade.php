@@ -13,7 +13,7 @@
         <button>Log out</button>
     </form>
 
-    <div style="border: 3px solid black;">
+    <div style="border: 3px solid black;"> // Specifies form for post creation
         <h2>Create a new post</h2>
         <form action="/create-post" method="POST">
             @csrf
@@ -23,7 +23,7 @@
         </form>
     </div>
 
-    <div style="border: 3px solid black;">
+    <div style="border: 3px solid black;"> // Specifies form for post editing
         <h2>All Posts</h2>
         @foreach($posts as $post)
         <div style="background-color: gray; padding: 10px; margin: 10px;">
