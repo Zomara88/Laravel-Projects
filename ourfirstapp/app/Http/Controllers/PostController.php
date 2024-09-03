@@ -15,7 +15,7 @@ class PostController extends Controller
     }
 
     public function actuallyUpdatePost(Post $post, Request $request) {
-        if (auth()->user()->id !== $post['user_id']) {
+        if (auth()->user()->id !== $post['user_id']) { 
             return redirect('/');
         }
 
@@ -32,7 +32,9 @@ class PostController extends Controller
     }
 
     public function showEditScreen(Post $post) { 
-        if (auth()->user()->id !== $post['user_id']) {
+        if (auth()->user()->id !== $post['user_id']) { /* If you are not the author of the post, redirect to home page. 
+                                                          Can also be done with policy statement/middleware. 
+                                                       */
             return redirect('/');
         }
 
@@ -45,7 +47,7 @@ class PostController extends Controller
             'body' => 'required'
         ]);
 
-        $incomingFields['title'] = strip_tags($incomingFields['title']);
+        $incomingFields['title'] = strip_tags($incomingFields['title']); // Ensure no malicious htmls are saved on posts
         $incomingFields['body'] = strip_tags($incomingFields['body']);
         $incomingFields['user_id'] = auth()->id();
         Post::create($incomingFields); // Create Post model using: php artisan make:model Post
