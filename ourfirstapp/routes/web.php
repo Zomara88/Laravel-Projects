@@ -11,7 +11,10 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     $posts = [];
     if (auth()->check()) {
-        $posts = auth()->user()->usersCoolPosts()->latest()->get(); // This ensures the posts shown belong only to the user who is logged in
+        $posts = auth()->user()->usersCoolPosts()->latest()->get(); /* This ensures the posts shown belong only to the user who is logged in. Calls an instance
+                                                                       of the user model and the usersCoolPosts function housed therein. latest() sorts blog posts
+                                                                       by date. 
+                                                                    */
     }
     return view('home', ['posts' => $posts]);
 });
