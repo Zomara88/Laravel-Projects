@@ -39,8 +39,8 @@
         @endforeach
     </div>
 
-    @else // Login page
-    <div style="border: 3px solid black;">
+    @else 
+    <div style="border: 3px solid black;"> // Sign in page
         <h2>Register</h2>
         <form action="/register" method="post">
             @csrf
@@ -50,7 +50,7 @@
             <button>Register</button>
         </form>
     </div>
-    <div style="border: 3px solid black;">
+    <div style="border: 3px solid black;"> // Login page
         <h2>Login</h2>
         <form action="/login" method="post">
             @csrf
