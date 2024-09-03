@@ -27,7 +27,7 @@
         <h2>All Posts</h2>
         @foreach($posts as $post) // Loop through collection of posts
         <div style="background-color: gray; padding: 10px; margin: 10px;">
-            <h3>{{$post['title']}} by {{$post->user->name}}</h3>
+            <h3>{{$post['title']}} by {{$post->user->name}}</h3> // $post->user->name is demonstrating using a model instance to get the user's name
             {{$post['body']}}
             <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
             <form action="/delete-post/{{$post->id}}" method="POST"> // This block of code handles delete requests
