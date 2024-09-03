@@ -2,10 +2,17 @@ To run server input: php artisan serve in terminal. This application provides lo
 
 Important files:
 routes -> web.php
+
 app -> Http/Controllers -> UserController.php
+
 app -> Http/Controllers -> PostController.php
+
 resources -> views -> home.blade
+
 resources -> views -> edit-post.blade
+
 Models -> Post.php
+
 Models -> User.php
+
 database -> migrations
