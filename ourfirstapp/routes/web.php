@@ -11,7 +11,7 @@ use App\Http\Controllers\UserController;
 Route::get('/', function () {
     $posts = [];
     if (auth()->check()) {
-        $posts = auth()->user()->usersCoolPosts()->latest()->get();
+        $posts = auth()->user()->usersCoolPosts()->latest()->get(); // This ensures the posts shown belong only to the user who is logged in
     }
     return view('home', ['posts' => $posts]);
 });
