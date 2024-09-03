@@ -30,7 +30,7 @@
             <h3>{{$post['title']}} by {{$post->user->name}}</h3>
             {{$post['body']}}
             <p><a href="/edit-post/{{$post->id}}">Edit</a></p>
-            <form action="/delete-post/{{$post->id}}" method="POST">
+            <form action="/delete-post/{{$post->id}}" method="POST"> // This block of code handles delete requests
                 @csrf
                 @method('DELETE')
                 <button>Delete</button>
